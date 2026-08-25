@@ -1,7 +1,3 @@
----
-
-**4. `api/weather.js`** (isi sama persis kayak yang saya kasih sebelumnya)
-```javascript
 export default async function handler(req, res) {
   const { lat, lon, city, ai } = req.query;
   const cityName = city || 'Jakarta';
@@ -15,11 +11,11 @@ export default async function handler(req, res) {
   }
 
   const current = weatherData.current || {};
-  const temp = current.temperature_2m ?? 0;
-  const hum = current.relative_humidity_2m ?? 0;
-  const code = current.weather_code ?? 0;
-  const cloud = current.cloud_cover ?? 0;
-  const isDay = current.is_day ?? 1;
+  const temp = current.temperature_2m || 0;
+  const hum = current.relative_humidity_2m || 0;
+  const code = current.weather_code || 0;
+  const cloud = current.cloud_cover || 0;
+  const isDay = current.is_day !== undefined ? current.is_day : 1;
 
   let displayText = `${cityName} [Cuaca] Suhu: ${temp}°C | Kelembaban: ${hum}%`;
   let audioText = `Cuaca saat ini suhu ${temp} derajat, kelembaban ${hum} persen.`;
