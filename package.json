@@ -1,0 +1,6 @@
+{
+  "name": "ersa-weather-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "API Gateway cuaca untuk ESP32 Central Ersa"
+}
